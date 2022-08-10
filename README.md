@@ -6,6 +6,7 @@
 - I did not use any other packages - I thought about using [axios](https://www.npmjs.com/package/axios) to make the call to the back-end but decided against it for simplicity. Although I'm not happy about making another call to the backend in `ItemSearch.jsx`.
 - The dietary count in `MenuSummary.jsx` is probably more complicated that it needs to be, and if it's functionality needed to be changed I'd be tempted to re-factor it completely.
 - I had anticipated to create a single test for each component to ensure they would render but ran into problems getting them work pass, I think due to using context. I didn't want to spend much longer trying to solve it (c. 2 hours to finish, c. one hour on tests).
+- I think there's a better way to handle the issue of the server port already being allocated, I imagine using environment variables in a real-world scenario would make sense. In the meantime, it's a hard-coded value.
 
 ## Notes - backend
 
