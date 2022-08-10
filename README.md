@@ -1,23 +1,25 @@
-# Feedr Technical Challenge
+# Feedr Technical Challenge Submission
 
-Thank you for taking the time to attempt this challenge.
+## Notes - frontend
 
-These tests are used to evaluate candidates of all skill levels so please complete them to a level you feel is an accurate representation of your skill set.
+- I opted to use a context based approach opposed to prop drilling.
+- I did not use any other packages - I thought about using [axios](https://www.npmjs.com/package/axios) to make the call to the back-end but decided against it for simplicity. Although I'm not happy about making another call to the backend in `ItemSearch.jsx`.
+- The dietary count in `MenuSummary.jsx` is probably more complicated that it needs to be, and if it's functionality needed to be changed I'd be tempted to re-factor it completely.
+- I had anticipated to create a single test for each component to ensure they would render but ran into problems getting them work pass, I think due to using context. I didn't want to spend much longer trying to solve it (c. 2 hours to finish, c. one hour on tests).
 
-Please read `README-FRONTEND.md` for further instructions.
+## Notes - backend
 
-If you have any questions or would like to clarify any details, please email nick@feedr.co.
-
-Good luck!
-
-# Quick Start
-Fork the repository, clone it to your local system, then:
+- I used a route parameter rather than a query parameter to handle the search.
+- There's a try/catch block to check the request but it'll only `console.log` the error, ideally this would be thrown back to the client side in a nicer manner.
 
 ## Install dependencies
+
 yarn (or npm install)
 
 ## Start development server
+
 yarn dev (or npm run dev)
 
-## Run tests
-yarn test (or npm run test)
+## Config
+
+If port 3000 is already allocated, change the `port` variable in `src/client/config/api.js` to match the correct port.
