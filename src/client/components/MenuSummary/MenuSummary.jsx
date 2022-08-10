@@ -3,7 +3,7 @@ import "./MenuSummary.css";
 import { useMenuContext } from "../../context/MenuContext";
 
 const MenuSummary = () => {
-  const { menu } = useMenuContext();
+  const { menu, diets } = useMenuContext();
   return (
     <div className="menu-summary">
       <div className="container">
@@ -12,9 +12,17 @@ const MenuSummary = () => {
             <span>{menu.length} item(s)</span>
           </div>
           <div className="col-6 menu-summary-right">
-            6x <span className="dietary">ve</span>
-            4x <span className="dietary">v</span>
-            12x <span className="dietary">n!</span>
+            {diets
+              .filter((diet, index, newDietArray) => {
+                return newDietArray.indexOf(diet) == index;
+              })
+              .sort()
+              .map((diet, index) => (
+                <span key={index}>
+                  {diets.filter((selectedDiet) => selectedDiet === diet).length}
+                  x<span className="dietary">{diet}</span>
+                </span>
+              ))}
           </div>
         </div>
       </div>
