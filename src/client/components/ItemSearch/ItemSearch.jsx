@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ItemSearch.css";
 import { useMenuContext } from "../../context/MenuContext";
-
+import { apiUrl } from "../../config/api";
 const ItemSearch = () => {
   const { items, setItems } = useMenuContext();
   const [searchQuery, setSearchQuery] = useState();
@@ -11,7 +11,7 @@ const ItemSearch = () => {
     if (!searchQuery) {
       setItems(items);
     } else {
-      fetch("http://localhost:3000/api/items/" + searchQuery.toLowerCase())
+      fetch(`${apiUrl}/${searchQuery.toLowerCase()}`)
         .then((response) => response.json())
         .then((searchResults) => setItems(searchResults.result))
         .catch((error) => console.log(error.message));

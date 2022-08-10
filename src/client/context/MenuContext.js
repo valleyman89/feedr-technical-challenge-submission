@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
+import { apiUrl } from "../config/api";
 
 export const MenuContext = createContext();
 
@@ -9,7 +10,7 @@ export const MenuProvider = ({ children }) => {
   const [diets, setDiets] = useState([]);
   // API CALL
   useEffect(() => {
-    fetch("http://localhost:3000/api/items")
+    fetch(apiUrl)
       .then((response) => response.json())
       .then((data) => setItems(data.items))
       .catch((error) => console.log(error.message));
