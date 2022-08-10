@@ -32,6 +32,10 @@ li.item {
   position: relative;
 }
 
+li.item:hover {
+  background-color: rgba(111, 126, 129);
+}
+
 li.item h2 {
   font-size: 12pt;
 }
