@@ -27,6 +27,9 @@ const ItemPicker = () => {
               <button
                 onClick={() => handleUpdateMenu(item)}
                 className="remove-item"
+                disabled={menu.find(
+                  (selectedItem) => item.id === selectedItem.id
+                )}
               >
                 +
               </button>
