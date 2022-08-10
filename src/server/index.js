@@ -11,14 +11,18 @@ app.get("/api/items", (req, res) => res.send({ items }));
 
 // SEARCH ITEMS
 app.get("/api/items/:searchQuery", (req, res) => {
-  const { searchQuery } = req.params;
+  try {
+    const { searchQuery } = req.params;
 
-  const searchResult = items.filter((item) =>
-    Object.values(item).some((itemToSearch) =>
-      itemToSearch.toString().toLowerCase().includes(searchQuery)
-    )
-  );
-  res.send({ result: searchResult });
+    const searchResult = items.filter((item) =>
+      Object.values(item).some((itemToSearch) =>
+        itemToSearch.toString().toLowerCase().includes(searchQuery)
+      )
+    );
+    res.send({ result: searchResult });
+  } catch (error) {
+    console.log(error.message);
+  }
 });
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));
