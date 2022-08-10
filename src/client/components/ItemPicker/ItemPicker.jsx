@@ -5,8 +5,8 @@ import { useMenuContext } from "../../context/MenuContext";
 const ItemPicker = () => {
   const { items, menu, setMenu } = useMenuContext();
 
-  const handleUpdateMenu = (item) => {
-    setMenu([...menu, item]);
+  const handleItemAdd = (itemToAdd) => {
+    setMenu([...menu, itemToAdd]);
   };
 
   return (
@@ -25,7 +25,7 @@ const ItemPicker = () => {
                 ))}
               </p>
               <button
-                onClick={() => handleUpdateMenu(item)}
+                onClick={() => handleItemAdd(item)}
                 className="remove-item"
                 disabled={menu.find(
                   (selectedItem) => item.id === selectedItem.id
