@@ -26,9 +26,7 @@ export const MenuProvider = ({ children }) => {
   }, [menu]);
 
   return (
-    <MenuContext.Provider
-      value={{ items, setItems, menu, setMenu, diets, setDiets }}
-    >
+    <MenuContext.Provider value={{ items, setItems, menu, setMenu, diets }}>
       {children}
     </MenuContext.Provider>
   );
