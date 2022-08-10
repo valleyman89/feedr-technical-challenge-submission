@@ -3,7 +3,12 @@ import ItemSearch from "../ItemSearch/ItemSearch";
 import "./ItemPicker.css";
 import { useMenuContext } from "../../context/MenuContext";
 const ItemPicker = () => {
-  const { items } = useMenuContext();
+  const { items, menu, setMenu } = useMenuContext();
+
+  const handleUpdateMenu = (item) => {
+    setMenu([...menu, item]);
+  };
+
   return (
     <div className="col-4">
       <ItemSearch />
@@ -19,6 +24,12 @@ const ItemPicker = () => {
                   </span>
                 ))}
               </p>
+              <button
+                onClick={() => handleUpdateMenu(item)}
+                className="remove-item"
+              >
+                +
+              </button>
             </li>
           ))}
       </ul>
